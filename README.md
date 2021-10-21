@@ -1,6 +1,7 @@
 # Basic API Server
-[PR's](https://github.com/Zavvy-Glitch/basic-api-server/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed)
+[PR's](https://github.com/Zavvy-Glitch/basic-api-server/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed) \
 Version: 1.0.0
+[Server Deployment](https://chattray-basic-api-server.herokuapp.com/)
 
 
 ## Express REST API
