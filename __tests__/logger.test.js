@@ -1,31 +1,25 @@
 'use strict';
 
-const { db, person, color } = require('../lib/models');
+const logger = require('../lib/middleware/logger.js');
 
-beforeAll(async() => {
-  await db.sync();
-});
+describe('Testing the logger middleware', () => {
+  
+  let req = {method: 'GET'};
+  let res = {};
+  let next = jest.fn();
+  console.log = jest.fn();
 
-afterAll(async () => {
-  await db.drop();
-});
+  it('should be able to log a GET method', () => {
+    logger(req, res, next);
 
-describe('Testing our Sequelize model', () => {
-
-  it('Should be able to create a Person', async () => {
-    let newPerson = await person.create({
-      name: 'Some Name',
-      title: 'Some Title',
-    });
-    expect(newPerson.id).toBe(1);
-    expect(newPerson.name).toBe('Some Name');
+    // expect(console.log).toHaveBeenCalledWith('GET');
+    expect(next).toHaveBeenCalled();
   });
 
-  it('Should be able to create a Color', async () => {
-    let newColor = await color.create({
-      color: 'Some Color',
-    });
-    expect(newColor.id).toBe(1);
-    expect(newColor.color).toBe('Some Color');
+  it('Should throw an error when a different method is called', () => {
+    req.method = 'PUT';
+
+    logger(req, res, next);
+    expect(next).toHaveBeenCalledWith('Error - Something Went Wrong');
   });
 });
