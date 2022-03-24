@@ -1,10 +1,15 @@
 'use strict';
 
+const { sequelize } = require('./lib/collection')
+const server = require('./lib/server.js');
 require('dotenv').config();
-const app = require('./lib/server.js');
-const { db } = require('./lib/models/index.js');
+const PORT = process.env.PORT || 3333;
 
-// const PORT = process.env.PORT || 3333;
-
-db.sync();
-app.start;
+sequelize.sync()
+  .then(() => {
+    console.log('DB Initiated!!!');
+    server.start(PORT)
+  })
+  .catch(err => {
+    console.error(err);
+  });
