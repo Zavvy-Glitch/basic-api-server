@@ -1,13 +1,11 @@
 {
-  "name": "basic-api-server",
+  "name": "cloud-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "[PR1 API Implementation](https://github.com/Zavvy-Glitch/basic-api-server/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed) \\ [PR2 API Refactor](https://github.com/Zavvy-Glitch/basic-api-server/pull/2/commits) \\ Version: 1.0.1 \\ [Server Deployment](https://chattray-basic-api-server.herokuapp.com/)",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose --coverage",
-    "start": "node index.js",
-    "db:config": "sequelize init:config",
-    "db:create": "sequelize db:create"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,13 +19,6 @@
   },
   "homepage": "https://github.com/Zavvy-Glitch/basic-api-server#readme",
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "jest": "^27.3.1",
-    "pg": "^8.7.1",
-    "sequelize": "^6.7.0",
-    "sequelize-cli": "^6.2.0",
-    "sqlite3": "^5.0.2",
-    "supertest": "^6.1.6"
+    "express": "^4.17.3"
   }
 }

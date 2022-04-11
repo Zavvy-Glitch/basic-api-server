@@ -1,15 +1,14 @@
 'use strict';
 
-const { sequelize } = require('./lib/collection')
-const server = require('./lib/server.js');
-require('dotenv').config();
-const PORT = process.env.PORT || 3333;
+const express = require('express');
+const PORT = process.env.PORT || 3000;
 
-sequelize.sync()
-  .then(() => {
-    console.log('DB Initiated!!!');
-    server.start(PORT)
-  })
-  .catch(err => {
-    console.error(err);
-  });
+const app = express();
+
+app.get('/', (request, response, next) => {
+  response.status(200).send('HELLO WORLD!')
+})
+
+app.listen(PORT, () => {
+  console.log(`Server Running on Port :: ${PORT}`)
+})
